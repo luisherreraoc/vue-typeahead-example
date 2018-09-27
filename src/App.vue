@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Typeahead msg="Welcome to Your Vue.js App"/>
+    <Typeahead />
   </div>
 </template>
 
@@ -16,12 +16,12 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+body {
+  margin: 0; padding: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  // box-sizing: border-box;
+  background: linear-gradient(to top right, rgb(92,184,191), darken(rgb(92,184,191), 20));
+  // background-size: cover;
+  min-height: 100vh;
 }
 </style>
