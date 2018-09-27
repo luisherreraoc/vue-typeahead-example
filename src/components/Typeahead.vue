@@ -45,6 +45,9 @@ export default {
       .debounceTime(1000)
       .subscribe(obs => console.log('I trigger on event keyup'));
   },
+  beforeDestroy() {
+    this.inputChange.unsubscribe();
+  },
 };
 </script>
 
