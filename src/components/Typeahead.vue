@@ -69,9 +69,24 @@ export default {
       .distinctUntilChanged()
       .debounceTime(this.delayTime)
       .subscribe(obs => console.log('I trigger on event keyup'));
+    this.getData();
   },
   beforeDestroy() {
     this.inputChange.unsubscribe();
+  },
+  methods: {
+    getData() {
+      if (typeof this.source === 'string') {
+        fetch(this.source)
+          .then(stream => stream.json())
+          .then((data) => {
+            this.items = data.results;
+          })
+          .catch(error => console.error(error));
+      } else {
+        this.items = this.source;
+      }
+    },
   },
 };
 </script>
