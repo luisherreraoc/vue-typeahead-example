@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Typeahead />
+    <Typeahead filter-key="subject"
+               source="https://rickandmortyapi.com/api/character/"
+               placeholder="Let's get Schwifty"/>
   </div>
 </template>
 

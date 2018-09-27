@@ -2,7 +2,8 @@
   <div class="container">
     <div class="search">
       <input type="text" class="search__input"
-            ref="search">
+             ref="search"
+             :placeholder="placeholder">
     </div>
 
     <div class="results">
@@ -31,18 +32,42 @@ import { Observable } from 'rxjs';
 export default {
   name: 'Typeahead',
   props: {
-
+    source: {
+      type: [Array, String],
+      required: true,
+    },
+    filterKey: {
+      type: String,
+      required: true,
+    },
+    numChars: {
+      type: Number,
+      default: 4,
+    },
+    perPage: {
+      type: Number,
+      default: 5,
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    delayTime: {
+      type: Number,
+      default: 1000,
+    },
   },
   data() {
     return {
       inputChange: null,
+      items: [],
     };
   },
   mounted() {
     this.inputChange = Observable.fromEvent(this.$refs.search, 'keyup')
       .map(e => e.target.value)
       .distinctUntilChanged()
-      .debounceTime(1000)
+      .debounceTime(this.delayTime)
       .subscribe(obs => console.log('I trigger on event keyup'));
   },
   beforeDestroy() {
