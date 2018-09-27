@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <div class="search">
-      <input type="text">
+      <input type="text" class="search__input"
+            ref="search">
     </div>
 
     <div class="results">
@@ -25,6 +26,8 @@
 </template>
 
 <script>
+import { Observable } from 'rxjs';
+
 export default {
   name: 'Typeahead',
   props: {
@@ -32,8 +35,15 @@ export default {
   },
   data() {
     return {
-
+      inputChange: null,
     };
+  },
+  mounted() {
+    this.inputChange = Observable.fromEvent(this.$refs.search, 'keyup')
+      .map(e => e.target.value)
+      .distinctUntilChanged()
+      .debounceTime(1000)
+      .subscribe(obs => console.log('I trigger on event keyup'));
   },
 };
 </script>
