@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Typeahead filter-key="subject"
+    <Typeahead filter-key="name"
                source="https://rickandmortyapi.com/api/character/"
                placeholder="Let's get Schwifty"/>
   </div>
@@ -22,7 +22,7 @@ body {
   margin: 0; padding: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   // box-sizing: border-box;
-  background: linear-gradient(to top right, rgb(92,184,191), darken(rgb(92,184,191), 20));
+  background: linear-gradient(to top right, rgb(92,184,191), darken(rgb(92,184,191), 25));
   // background-size: cover;
   min-height: 100vh;
 }

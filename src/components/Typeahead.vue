@@ -7,8 +7,10 @@
     </div>
 
     <div class="results">
-      <li class="results__item">
-        <span></span>
+      <li class="results__item"
+          v-for="item in filteredItems"
+          :key="item.id">
+        <span>{{ item.name }}</span>
       </li>
 
       <div class="results__nav">
@@ -61,6 +63,7 @@ export default {
     return {
       inputChange: null,
       items: [],
+      query: '',
     };
   },
   mounted() {
@@ -68,11 +71,24 @@ export default {
       .map(e => e.target.value)
       .distinctUntilChanged()
       .debounceTime(this.delayTime)
-      .subscribe(obs => console.log('I trigger on event keyup'));
+      .subscribe((obs) => {
+        this.query = obs;
+      });
     this.getData();
   },
   beforeDestroy() {
     this.inputChange.unsubscribe();
+  },
+  computed: {
+    filteredItems() {
+      const query = this.query;
+      const key = this.filterKey;
+
+      if (query.length >= this.numChars) {
+        return this.items.filter(item => item[key].toLowerCase()
+          .indexOf(query.toLowerCase()) > -1);
+      }
+    },
   },
   methods: {
     getData() {
