@@ -17,10 +17,21 @@
       </li>
 
       <div class="results__nav"
-           v-if="filteredItems !== undefined && filteredItems.length > perPage">
-        <div class="results__nav__button"></div>
-        <p class="results__nav__text"></p>
-        <div class="results__nav__button"></div>
+          v-if="filteredItems != undefined && filteredItems.length > perPage">
+
+        <div class="results__nav__button">
+          <i class="fas fa-caret-square-left"
+              :class="{ 'results__nav__button_disabled' : page === 1 }"
+              @click="prev"></i>
+        </div>
+
+        <p class="results__nav__text">Page {{page}} of {{totalPages}}</p>
+
+        <div class="results__nav__button">
+          <i class="fas fa-caret-square-right"
+              :class="{ 'results__nav__button_disabled' : page === totalPages }"
+              @click="next"></i>
+        </div>
       </div>
 
       <div class="results__control"
@@ -123,6 +134,11 @@ export default {
         return store.methods.getArraySection(itemsToSort, this.page, this.perPage);
       }
     },
+    totalPages() {
+      const items = this.filteredItems.length;
+
+      return items ? Math.ceil(items / this.perPage) : 1;
+    },
   },
   methods: {
     getData() {
@@ -163,6 +179,16 @@ export default {
         this.showResults = false;
       }
     },
+    prev() {
+      if (this.page > 1) {
+        this.page -= 1;
+      }
+    },
+    next() {
+      if (this.page < this.totalPages) {
+        this.page += 1;
+      }
+    },
   },
 };
 </script>
@@ -173,23 +199,23 @@ export default {
   text-align: center;
 }
 .search__input {
-  width: 400px;
-  padding: 15px;
+  width: 48vw;
+  padding: 2vw;
   border-radius: 36px;
-  font-size: 18px;
+  font-size: 3vw;
   text-align: center;
 }
 .results {
   list-style-type: none;
   margin: 2px auto;
-  width: 48vh;
+  width: 48vw;
   box-shadow: 0px 2px 7px darken(rgb(204, 204, 204), 50);
   border-radius: 5px;
   .results__item {
-    width: 41vh;
-    padding: 20px;
+    width: 38vw;
+    padding: 3vw;
     margin: auto;
-    font-size: 16px;
+    font-size: 2.5vw;
     text-align: center;
     border-bottom: 1px solid rgb(204, 204, 204);
     &:hover {
@@ -204,11 +230,11 @@ export default {
     padding-top: 15px;
     padding-bottom: 10px;
     i {
-      font-size: 20px;
+      font-size: 3vw;
     }
     .results__nav__text {
         margin: 0px;
-        font-size: 12px;
+        font-size: 2vw;
     }
     .results__nav__button_disabled {
       color: #799099;
@@ -217,7 +243,7 @@ export default {
   .results__control {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 2.5vw;
     .results__control__mes_short {
       color: #BB0000;
       font-weight: 500;
