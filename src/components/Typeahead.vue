@@ -225,16 +225,20 @@ export default {
   .results__nav {
     display: flex;
     justify-content: space-around;
-    width: 170px;
+    width: 38vw;
     margin: auto;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding-top: 4.5vw;
+    padding-bottom: 2.5vw;
     i {
       font-size: 3vw;
     }
     .results__nav__text {
         margin: 0px;
         font-size: 2vw;
+        padding-top: 6px;
+        @media only screen and (min-width: 500px) {
+          padding-top: 0px;
+        }
     }
     .results__nav__button_disabled {
       color: #799099;
