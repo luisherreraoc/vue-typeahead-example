@@ -193,7 +193,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container {
   text-align: center;
@@ -209,17 +208,20 @@ export default {
   list-style-type: none;
   margin: 2px auto;
   width: 44vmin;
-  box-shadow: 0px 2px 7px darken(rgb(204, 204, 204), 50);
+  box-shadow: 0px 2px 7px darken(rgb(155, 193, 188), 50);
   border-radius: 5px;
+  background: rgb(155, 193, 188);
   .results__item {
-    width: 35vmin;
+    width: 38vmin;
     padding: 3vmin;
     margin: auto;
     font-size: 2.5vmin;
     text-align: center;
-    border-bottom: 1px solid rgb(204, 204, 204);
+    border-bottom: 1px solid rgb(44, 107, 112);
+    color: rgb(83, 82, 82);
     &:hover {
-      background: linear-gradient(to bottom right, #D8D8D8, #F5F5F5);
+      background: linear-gradient(to bottom right, rgb(155, 193, 188), darken(rgb(155,193,188), 27));
+      color: black;
     };
   }
   .results__nav {
@@ -230,12 +232,16 @@ export default {
     padding-top: 4.5vmin;
     padding-bottom: 2.5vmin;
     i {
-      font-size: 3vmin;
+      font-size: 5vmin;
+      color: darken(rgb(44, 107, 112), 10);
+      @media only screen and (min-width: 500px) {
+        font-size: 3vmin;
+      }
     }
     .results__nav__text {
         margin: 0px;
         font-size: 2vmin;
-        padding-top: 6px;
+        padding-top: 3px;
         @media only screen and (min-width: 500px) {
           padding-top: 0px;
         }
