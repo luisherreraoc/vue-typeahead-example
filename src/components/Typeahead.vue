@@ -199,23 +199,23 @@ export default {
   text-align: center;
 }
 .search__input {
-  width: 48vw;
-  padding: 2vw;
+  width: 45vmin;
+  padding: 1.7vmin;
   border-radius: 36px;
-  font-size: 3vw;
+  font-size: 3vmin;
   text-align: center;
 }
 .results {
   list-style-type: none;
   margin: 2px auto;
-  width: 48vw;
+  width: 44vmin;
   box-shadow: 0px 2px 7px darken(rgb(204, 204, 204), 50);
   border-radius: 5px;
   .results__item {
-    width: 38vw;
-    padding: 3vw;
+    width: 35vmin;
+    padding: 3vmin;
     margin: auto;
-    font-size: 2.5vw;
+    font-size: 2.5vmin;
     text-align: center;
     border-bottom: 1px solid rgb(204, 204, 204);
     &:hover {
@@ -225,16 +225,16 @@ export default {
   .results__nav {
     display: flex;
     justify-content: space-around;
-    width: 38vw;
+    width: 35vmin;
     margin: auto;
-    padding-top: 4.5vw;
-    padding-bottom: 2.5vw;
+    padding-top: 4.5vmin;
+    padding-bottom: 2.5vmin;
     i {
-      font-size: 3vw;
+      font-size: 3vmin;
     }
     .results__nav__text {
         margin: 0px;
-        font-size: 2vw;
+        font-size: 2vmin;
         padding-top: 6px;
         @media only screen and (min-width: 500px) {
           padding-top: 0px;
@@ -247,7 +247,7 @@ export default {
   .results__control {
     display: flex;
     justify-content: center;
-    font-size: 2.5vw;
+    font-size: 2.5vmin;
     .results__control__mes_short {
       color: #BB0000;
       font-weight: 500;
