@@ -229,8 +229,8 @@ export default {
     justify-content: space-around;
     width: 35vmin;
     margin: auto;
-    padding-top: 4.5vmin;
-    padding-bottom: 2.5vmin;
+    padding-top: 2.5vmin;
+    padding-bottom: 1.5vmin;
     i {
       font-size: 5vmin;
       color: darken(rgb(44, 107, 112), 10);
@@ -263,7 +263,7 @@ export default {
     background: #FFBABA;
   }
   .results__control_empty {
-    background: #F5F5F5;
+    background: rgb(155, 193, 188);
   }
 }
 </style>
